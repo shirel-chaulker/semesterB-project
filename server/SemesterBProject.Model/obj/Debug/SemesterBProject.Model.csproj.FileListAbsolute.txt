@@ -1,0 +1,6 @@
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Model\bin\Debug\SemesterBProject.Model.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Model\bin\Debug\SemesterBProject.Model.pdb
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Model\obj\Debug\SemesterBProject.Model.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Model\obj\Debug\SemesterBProject.Model.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Model\obj\Debug\SemesterBProject.Model.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Model\obj\Debug\SemesterBProject.Model.pdb

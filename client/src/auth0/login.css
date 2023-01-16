@@ -1,0 +1,8 @@
+body {
+  background-image: url("C:\react\semester_b_project\src\auth0\welcomePage.png");
+}
+
+.login h4 {
+  display: flex;
+  justify-content: right;
+}

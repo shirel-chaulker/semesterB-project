@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E3188FFD-9429-4E23-969B-5841D817C7EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SemesterBProject.Entities</RootNamespace>
+    <AssemblyName>SemesterBProject.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessCompanies.cs" />
+    <Compile Include="Campaigns.cs" />
+    <Compile Include="MainManager.cs" />
+    <Compile Include="MoneyTracks.cs" />
+    <Compile Include="NonProfitOrgs.cs" />
+    <Compile Include="Products.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Purchases.cs" />
+    <Compile Include="SocialActivists.cs" />
+    <Compile Include="Twitters.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SemesterBProject.Dal\SemesterBProject.Dal.csproj">
+      <Project>{2adee133-25c8-4955-ba9e-475c39e9209e}</Project>
+      <Name>SemesterBProject.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SemesterBProject.Data.Sql\SemesterBProject.Data.Sql.csproj">
+      <Project>{626babd9-364c-4bba-bdd9-26a7fc30fadb}</Project>
+      <Name>SemesterBProject.Data.Sql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SemesterBProject.Model\SemesterBProject.Model.csproj">
+      <Project>{ef423f21-f942-4368-87c4-c3eb17342fa6}</Project>
+      <Name>SemesterBProject.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

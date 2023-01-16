@@ -1,0 +1,17 @@
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\SemesterBProject.Dal.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\SemesterBProject.Dal.pdb
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\obj\Debug\SemesterBProject.Dal.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\obj\Debug\SemesterBProject.Dal.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\obj\Debug\SemesterBProject.Dal.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\obj\Debug\SemesterBProject.Dal.pdb
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\System.Security.AccessControl.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\System.Security.Permissions.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\System.Security.AccessControl.xml
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\System.Security.Permissions.xml
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\obj\Debug\SemesterBProject.Dal.csproj.CopyComplete
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\SemesterBProject.Model.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\SemesterBProject.Model.pdb
