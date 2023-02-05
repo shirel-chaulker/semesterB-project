@@ -15,5 +15,9 @@ namespace SemesterBProject.Model.Twitter
         public int CampaignID { get; set; }
         public string Hashtag { get; set; }
         public string TwitterAcount { get; set; }
+
+        public DateTime? Date { get; set; }
+
+        public string Answer { get; set; }  
     }
 }

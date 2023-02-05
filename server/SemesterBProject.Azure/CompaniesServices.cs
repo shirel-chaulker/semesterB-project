@@ -47,6 +47,15 @@ namespace SemesterBProject.Azure
                     return new OkObjectResult(responseMessage1);
 
 
+                case "getAcountData":
+                    string requestBody2 = await new StreamReader(req.Body).ReadToEndAsync();
+                    JsonConvert.DeserializeObject(requestBody2);
+
+                    List<TwitterTrack> TwitterList = MainManager.Instance.twitters.Init();
+                    string responseMessage2 = System.Text.Json.JsonSerializer.Serialize(TwitterList);
+
+                    return new OkObjectResult(responseMessage2);
+
             }
             return null;
         }

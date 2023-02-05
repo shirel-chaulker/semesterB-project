@@ -11,3 +11,5 @@ C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Entities\obj\Debug\
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Entities\obj\Debug\SemesterBProject.Entities.csproj.CopyComplete
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Entities\obj\Debug\SemesterBProject.Entities.dll
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Entities\obj\Debug\SemesterBProject.Entities.pdb
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Entities\bin\Debug\NLog.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Entities\bin\Debug\NLog.xml

@@ -4,3 +4,6 @@ C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Model\obj\Debug\Sem
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Model\obj\Debug\SemesterBProject.Model.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Model\obj\Debug\SemesterBProject.Model.dll
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Model\obj\Debug\SemesterBProject.Model.pdb
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Model\bin\Debug\NLog.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Model\bin\Debug\NLog.xml
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Model\obj\Debug\SemesterBProject.Model.csproj.CopyComplete

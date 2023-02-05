@@ -74,6 +74,7 @@ namespace SemesterBProject.Data.Sql
             {
                 if (command == null && (campaign == null)) return;
                 {
+                    command.Parameters.AddWithValue("@campaignId", campaign.CampaignID);
                     command.Parameters.AddWithValue("@campaignName", campaign.CampaignName);
                     command.Parameters.AddWithValue("@NonProfitName", campaign.NonProfitName);
                     command.Parameters.AddWithValue("@hashtag", campaign.Hashtag);

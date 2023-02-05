@@ -29,12 +29,12 @@ namespace SemesterBProject.Azure
 
                     List<TwitterTrack> TwitterAcount = MainManager.Instance.twitters.Init();
 
-                    DateTime currentDate = DateTime.Today;
-                    DateTime dateOfTomorrow = DateTime.Today.AddDays(0);
+                    DateTime currentDate = DateTime.Today.AddDays(-1); 
+                    DateTime dateOfTomorrow = DateTime.Today;
                     string currentDay = currentDate.ToString("yyyy-MM-dd");
                     string tomorrow = dateOfTomorrow.ToString("yyyy-MM-dd");
                     string start_time = currentDay + "T00:00:00Z";
-                    string end_time = tomorrow + "T22:50:50Z";
+                    string end_time = tomorrow + "T00:00:00Z";
 
                     foreach (TwitterTrack user in TwitterAcount)
                     {
@@ -60,6 +60,7 @@ namespace SemesterBProject.Azure
                                 Console.WriteLine(tweetCount);
                                 MainManager.Instance.twitters.UpdateTrackData(user, tweetCount);
                             }
+
                         }
                     }
                     return new OkObjectResult("failedNotFollowing");

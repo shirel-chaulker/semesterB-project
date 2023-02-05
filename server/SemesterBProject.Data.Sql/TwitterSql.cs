@@ -18,25 +18,84 @@ namespace SemesterBProject.Data.Sql
         //read from db and inset to dictionary
         public void AddTwitterToDictionary(SqlDataReader reader)
         {
+            bool Flag = true;
+            while (Flag) 
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string Answer = reader["Answer"].ToString();
+                        switch (Answer) 
+                        {
+                            case "No tweets and valid":
+                                DateTime? Date = reader.GetDateTime(reader.GetOrdinal("ActivistDatemoney"));
+                                string AnswerTweet = reader.GetString(reader.GetOrdinal("Answer"));
 
+                                AddDataTwitter(reader,Date,AnswerTweet);
+
+                                break;
+
+                            case "No tweets and invalid":
+                                DateTime? Date1 = null;
+                                string AnswerTweet1 = reader.GetString(reader.GetOrdinal("Answer"));
+
+                                AddDataTwitter(reader, Date1, AnswerTweet1);
+
+                                break;
+
+                            case "Exist tweets and valid":
+                                DateTime? Date2 = reader.GetDateTime(reader.GetOrdinal("TweetDate"));
+                                string AnswerTweet2 = reader.GetString(reader.GetOrdinal("Answer"));
+
+                                AddDataTwitter(reader, Date2, AnswerTweet2);
+
+                                break;
+
+                            case "Exist tweets and invalid":
+                                DateTime? Date3 = null;
+                                string AnswerTweet3 = reader.GetString(reader.GetOrdinal("Answer"));
+
+                                AddDataTwitter(reader, Date3, AnswerTweet3);
+
+                                break;
+                        }
+                    }
+                }
+                if (!reader.NextResult())
+                {
+                    Flag = false;
+                    
+
+                }
+            }
+
+            
+
+
+        }
+
+        public void AddDataTwitter(SqlDataReader reader,DateTime? date,string answer ) 
+        {
             //clear List
             TwitterList.Clear();
 
-            while (reader.Read())
+            while (reader.HasRows)
             {
-                TwitterTrack twitter= new TwitterTrack();
+                TwitterTrack twitter = new TwitterTrack();
 
                 twitter.TrackID = reader.GetInt32(reader.GetOrdinal("TrackID"));
                 twitter.EarnMoney = reader.GetDecimal(reader.GetOrdinal("EarnMoney"));
                 twitter.CampaignID = reader.GetInt32(reader.GetOrdinal("CampaignID"));
                 twitter.Hashtag = reader.GetString(reader.GetOrdinal("Hashtag"));
                 twitter.TwitterAcount = reader.GetString(reader.GetOrdinal("TwitterAcount"));
+                twitter.Date = date;
+                twitter.Answer = answer;
 
 
                 //add to the list
                 TwitterList.Add(twitter);
             }
-
         }
 
         public List<TwitterTrack> GetTwitterFromDB()

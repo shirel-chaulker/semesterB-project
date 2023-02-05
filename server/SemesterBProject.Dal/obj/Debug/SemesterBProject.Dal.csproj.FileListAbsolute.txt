@@ -15,3 +15,5 @@ C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\Syste
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\obj\Debug\SemesterBProject.Dal.csproj.CopyComplete
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\SemesterBProject.Model.dll
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\SemesterBProject.Model.pdb
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\NLog.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\NLog.xml
