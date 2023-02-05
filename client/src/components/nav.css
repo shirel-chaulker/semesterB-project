@@ -1,3 +1,5 @@
 .nav-item-btn {
-  margin-left: 550px;
+  display: flex !important;
+  flex-direction: row !important;
+  margin-left: 900px;
 }

@@ -1,8 +1,14 @@
-body {
+.main {
   background-image: url("C:\react\semester_b_project\src\auth0\welcomePage.png");
+  height: 100vh;
 }
 
 .login h4 {
   display: flex;
-  justify-content: right;
+  justify-content: center;
+}
+
+.btn-primary {
+  justify-content: center;
+  margin-left: 600px;
 }

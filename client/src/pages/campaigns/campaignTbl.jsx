@@ -1,7 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RingLoader } from "react-spinners";
-import { GetCampaigns } from "../../services/services";
+
+import { deleteCampaign, GetCampaigns } from "../../services/services";
+
+import "./campaignStyle/campaignTbl.css";
 
 export const CampaignTbl = ({ setCampaign }) => {
   const [CampaignArr, SetCampaignArr] = useState(undefined);
@@ -16,13 +19,18 @@ export const CampaignTbl = ({ setCampaign }) => {
     GetCampaignsData();
   }, []);
 
-  let GoTOCampaign = (CampaignID) => {
+  let goToCampaign = (CampaignID) => {
     console.log(CampaignID, "hallo");
     navigate("/campaignInfo", {
       state: {
         CampaignID,
       },
     });
+  };
+
+  const handleDeleteCampaign = async (CampaignID) => {
+    console.log(CampaignID, "ok");
+    await deleteCampaign(CampaignID);
   };
   return (
     <div>
@@ -34,7 +42,8 @@ export const CampaignTbl = ({ setCampaign }) => {
             <th scope="col">NonProfitName</th>
             <th scope="col">Hashtag</th>
             <th scope="col">Description</th>
-            {/* <th scope="col"></th> */}
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         {CampaignArr && CampaignArr !== undefined ? (
@@ -46,19 +55,11 @@ export const CampaignTbl = ({ setCampaign }) => {
               Hashtag,
               Description,
             } = c;
-            console.log(
-              CampaignID,
-              CampaignName,
-              NonProfitName,
-              Hashtag,
-              Description
-            );
             return (
               <tbody>
                 <tr>
-                  {/* <th scope="row"></th> */}
                   <td>
-                    <button onClick={() => GoTOCampaign(CampaignID)}>
+                    <button onClick={() => goToCampaign(CampaignID)}>
                       {CampaignID}
                     </button>
                   </td>
@@ -66,18 +67,28 @@ export const CampaignTbl = ({ setCampaign }) => {
                   <td>{NonProfitName}</td>
                   <td>{Hashtag}</td>
                   <td>{Description}</td>
+
+                  <td>
+                    <Link
+                      to="/edit"
+                      onClick={() => {
+                        setCampaign(c);
+                      }}
+                    >
+                      <button className="btn btn-warning">Edit</button>
+                    </Link>
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => {
+                        handleDeleteCampaign(CampaignID);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
-                {/* <td>
-                  <Link
-                    to="/edit"
-                    onClick={() => {
-                      setCampaign(c);
-                    }}
-                  >
-                    <button className="btn btn-danger">Edit</button>
-                  </Link>
-                </td> */}
-                <tr />
               </tbody>
             );
           })

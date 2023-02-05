@@ -1,0 +1,12 @@
+.campaign-container {
+  text-align: center !important;
+  background-color: rgba(111, 111, 111, 0.53) !important;
+  margin-top: 30px;
+  margin-left: 30px;
+  max-height: 410px !important;
+  max-width: 300px !important;
+}
+
+h2 {
+  font-weight: bold;
+}

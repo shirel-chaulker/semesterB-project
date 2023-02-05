@@ -40,23 +40,38 @@ export const getCampaignById = async (CampaignId) => {
   }
 };
 //delete campaign
-export const DeleteCampaign = async (campaignId) => {
-  let Endpoint = `http://localhost:7255/api/campaign/DeleteCampaign/${campaignId}`;
-  await axios.delete(Endpoint);
+export const deleteCampaign = async (campaignId) => {
+  try {
+    console.log(campaignId);
+    let Endpoint = `http://localhost:7255/api/campaign/DeleteCampaign/${campaignId}`;
+    await axios.delete(Endpoint);
+  } catch (error) {
+    console.error(error);
+  }
 };
 //edit campaign
-export const UpdateCampaign = async (campaign, campaignId) => {
-  await axios.put(
-    `http://localhost:7255/api/campaign/UpdateCampaign/${campaignId}`,
-    campaign
-  );
+export const updateCampaign = async (campaign, campaignId) => {
+  try {
+    await axios.put(
+      `http://localhost:7255/api/campaign/UpdateCampaign/${campaignId}`,
+      campaign
+    );
+    console.log(campaign, "pass");
+    console.log(campaignId);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 //twitter
 export const GetTwitter = async () => {
-  console.log("hi");
-  let Endpoint = "http://localhost:7255/api/Twitter/getTwitt";
-  let response = await axios.get(Endpoint);
-  console.log(response.data);
-  return response.data;
+  try {
+    console.log("hi");
+    let Endpoint = "http://localhost:7255/api/companies/getAcountData";
+    let response = await axios.get(Endpoint);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 };

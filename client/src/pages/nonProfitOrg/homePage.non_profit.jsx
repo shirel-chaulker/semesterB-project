@@ -9,6 +9,7 @@ export const HomePageNonProfit = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { OrgID } = location.state;
+  console.log(OrgID);
 
   let initOrgData = async () => {
     let org = await getOrgById(OrgID);

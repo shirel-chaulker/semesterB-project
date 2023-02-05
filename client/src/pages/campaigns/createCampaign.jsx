@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { addCampaignToDb } from "../../services/services";
-import "./createCampaign.css";
+import "./campaignStyle/createCampaign.css";
 
 export const CreateCampaign = () => {
   const [addCampaign, SetAddCampaign] = useState({

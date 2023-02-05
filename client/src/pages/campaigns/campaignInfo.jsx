@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { RingLoader } from "react-spinners";
 import { getCampaignById } from "../../services/services";
 
-import "./campaignInfo.css";
+import "./campaignStyle/campaignInfo.css";
 
 export const CampaignInfo = () => {
   const [Campaign, SetCampaign] = useState();

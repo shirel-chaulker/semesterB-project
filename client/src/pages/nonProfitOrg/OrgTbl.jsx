@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RingLoader } from "react-spinners";
+
 import { GetNonProfitRep } from "../../services/userServices";
 
 export const OrgTbl = () => {
@@ -52,15 +53,6 @@ export const OrgTbl = () => {
               Description,
               PhoneNumber,
             } = c;
-            console.log(
-              OrgID,
-              FullNameRep,
-              OrgName,
-              URL,
-              Email,
-              Description,
-              PhoneNumber
-            );
             return (
               <tbody>
                 <tr>
