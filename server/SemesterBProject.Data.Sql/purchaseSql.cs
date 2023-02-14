@@ -5,27 +5,42 @@ using System.Text;
 using System.Threading.Tasks;
 using SemesterBProject.Dal;
 using SemesterBProject.Model;
+using Utilities;
 
 namespace SemesterBProject.Data.Sql
 {
-    public class purchaseSql
+    public class purchaseSql: BaseDataSql
     {
+        public purchaseSql(Logger log) : base(log)
+        {
+
+        }
         public void InsertPurchase(object userData, System.Data.SqlClient.SqlCommand command)
         {
-            if (userData is Purchase)
+            Log.LogEvent("get data from client and insert to db");
+            try
             {
-                Purchase purchase = (Purchase)userData;
+                if (userData is Purchase)
+                {
+                    Purchase purchase = (Purchase)userData;
 
 
-                command.Parameters.AddWithValue("@productName", purchase.ProductName);
-                command.Parameters.AddWithValue("@fullName", purchase.FullName);
-                command.Parameters.AddWithValue("@address", purchase.Address);
-                command.Parameters.AddWithValue("@phoneNumber", purchase.PhoneNumber);
-                command.Parameters.AddWithValue("@campaignDonation", purchase.CampaignDonation);
-               
+                    command.Parameters.AddWithValue("@productName", purchase.ProductName);
+                    command.Parameters.AddWithValue("@fullName", purchase.FullName);
+                    command.Parameters.AddWithValue("@address", purchase.Address);
+                    command.Parameters.AddWithValue("@phoneNumber", purchase.PhoneNumber);
+                    command.Parameters.AddWithValue("@campaignDonation", purchase.CampaignDonation);
+
+                }
+
+                int rows = command.ExecuteNonQuery();
             }
-
-            int rows = command.ExecuteNonQuery();
+            catch (Exception ex)
+            {
+                Log.LogException("An exception occurred:", ex);
+                throw;
+            }
+           
         }
 
         public void AddPurchaseToTbl(Purchase purchase)

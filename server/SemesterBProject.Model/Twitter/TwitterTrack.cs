@@ -19,5 +19,6 @@ namespace SemesterBProject.Model.Twitter
         public DateTime? Date { get; set; }
 
         public string Answer { get; set; }  
+        public string Tweets_Message_Id { get; set; }
     }
 }

@@ -3,33 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilities;
 using SemesterBProject.Model;
+using SocialCommunication;
 
 namespace SemesterBProject.Entities
 {
     public class MainManager
     {
 
-        private MainManager() { }
+        Logger logger;
+        private MainManager() { Init(); }
 
         private static readonly MainManager _instance = new MainManager();
         public static MainManager Instance { get { return _instance; } }
 
 
         //create show for the classes
-        public Campaigns campaigns = new Campaigns();
+        public void Init()
+        {
+            logger = new Logger("LogFile");
+            campaigns = new Campaigns(logger);
+            BusinessComp = new BusinessCompanies(logger);
+            products = new Products(logger);
+            activists = new SocialActivists(logger);
+            twitters = new Twitters(logger);
+            NonProfit = new NonProfitOrgs(logger);
+            Purchases = new Purchases(logger);
+            Tweets = new GetTwitter(logger);
+        }
+        public Campaigns campaigns;
 
-        public BusinessCompanies BusinessComp = new BusinessCompanies();
+        public BusinessCompanies BusinessComp;
 
-        public Products products = new Products();
+        public Products products;
 
-        public SocialActivists activists = new SocialActivists();
+        public SocialActivists activists;
 
-        public Twitters twitters = new Twitters();
+        public Twitters twitters;
 
-        public NonProfitOrgs NonProfit = new NonProfitOrgs();
+        public NonProfitOrgs NonProfit;
 
-        public Purchases Purchases = new Purchases();
+        public Purchases Purchases;
+
+        public GetTwitter Tweets;
        
     }
 }

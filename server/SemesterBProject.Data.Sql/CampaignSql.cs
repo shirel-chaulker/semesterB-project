@@ -2,30 +2,44 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SemesterBProject.Model;
 using SemesterBProject.Dal;
+using Utilities;
 
 namespace SemesterBProject.Data.Sql
 {
-    public class CampaignSql
+    public class CampaignSql: BaseDataSql
     {
+        public CampaignSql(Logger log) : base(log)
+        {
+
+        }
+       
         //create dictionary
         Dictionary<int, Campaign> CampaignsDictionary = new Dictionary<int, Campaign>();
         // Function that insret data to campaign
         public void InsertCampaign(Campaign campaign, System.Data.SqlClient.SqlCommand command)
         {
-           
-            command.Parameters.AddWithValue("@campaignName", campaign.CampaignName);
-            command.Parameters.AddWithValue("@NonProfitName", campaign.NonProfitName);
-            command.Parameters.AddWithValue("@hashtag", campaign.Hashtag);
-            command.Parameters.AddWithValue("@description", campaign.Description);
-            int rows = command.ExecuteNonQuery();
+            Log.LogEvent("start to get data from client and insert to db");
+            try
+            {
+                command.Parameters.AddWithValue("@campaignName", campaign.CampaignName);
+                command.Parameters.AddWithValue("@NonProfitName", campaign.NonProfitName);
+                command.Parameters.AddWithValue("@hashtag", campaign.Hashtag);
+                command.Parameters.AddWithValue("@description", campaign.Description);
+                int rows = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Log.LogException("An exception occurred:", ex);
+                throw;
+            }
+            
         }
 
         public void AddCampaignToTbl(Campaign campaign)
         {
+           
             string Insert = " insert into Campaigns values (@campaignName,@NonProfitName,@hashtag,@description)";
             SqlQuery sqlQuery = new SqlQuery();
             sqlQuery.RunAddCampaign(Insert, InsertCampaign, campaign);
@@ -34,28 +48,37 @@ namespace SemesterBProject.Data.Sql
 
         public void AddCampignToDictionary(SqlDataReader reader)
         {
-
-            //clear dictionary
-            CampaignsDictionary.Clear();
-
-            while (reader.Read())
+            Log.LogEvent("read from campaign table");
+            try
             {
-                Campaign campaign = new Campaign();
+                CampaignsDictionary.Clear();
 
-                campaign.CampaignID = reader.GetInt32(reader.GetOrdinal("CampaignID"));
-                campaign.CampaignName = reader.GetString(reader.GetOrdinal("CampaignName"));
-                campaign.NonProfitName = reader.GetString(reader.GetOrdinal("NonProfitName"));
-                campaign.Description = reader.GetString(reader.GetOrdinal("Description"));
-                campaign.Hashtag = reader.GetString(reader.GetOrdinal("Hashtag"));
-                
+                while (reader.Read())
+                {
+                    Campaign campaign = new Campaign();
 
-                //add the new campaign to dictionary 
-                CampaignsDictionary.Add(campaign.CampaignID, campaign);
+                    campaign.CampaignID = reader.GetInt32(reader.GetOrdinal("CampaignID"));
+                    campaign.CampaignName = reader.GetString(reader.GetOrdinal("CampaignName"));
+                    campaign.NonProfitName = reader.GetString(reader.GetOrdinal("NonProfitName"));
+                    campaign.Description = reader.GetString(reader.GetOrdinal("Description"));
+                    campaign.Hashtag = reader.GetString(reader.GetOrdinal("Hashtag"));
+
+                    Log.LogEvent("add campaign to dictionary");
+                    //add the new campaign to dictionary 
+                    CampaignsDictionary.Add(campaign.CampaignID, campaign);
+                }
             }
+            catch (Exception ex)
+            {
+                Log.LogException("An exception occurred:", ex);
+                throw;
+            }
+           
 
         }
         public Dictionary<int, Campaign> GetCampaignsFromDB()
         {
+            Log.LogEvent("call to dal function and get data from db");
             string insert = "select * from Campaigns";
             SqlQuery sqlQuery = new SqlQuery();
             sqlQuery.runCommand(insert, AddCampignToDictionary);
@@ -72,9 +95,15 @@ namespace SemesterBProject.Data.Sql
         {
             try
             {
-                if (command == null && (campaign == null)) return;
+                if (command == null && (campaign == null))
                 {
-                    command.Parameters.AddWithValue("@campaignId", campaign.CampaignID);
+                    Log.LogError("command or camapign are null");
+                    return;
+                }
+                else
+                {
+
+                 command.Parameters.AddWithValue("@campaignId", campaign.CampaignID);
                     command.Parameters.AddWithValue("@campaignName", campaign.CampaignName);
                     command.Parameters.AddWithValue("@NonProfitName", campaign.NonProfitName);
                     command.Parameters.AddWithValue("@hashtag", campaign.Hashtag);
@@ -84,7 +113,8 @@ namespace SemesterBProject.Data.Sql
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Log.LogException("faild to update the data on db", ex);
+                throw;
 
             }
         }
@@ -100,9 +130,26 @@ namespace SemesterBProject.Data.Sql
         //Function that delete campaign 
         public void RemoveCampaign(System.Data.SqlClient.SqlCommand command, int? campaignId)
         {
-            if (command == null && (campaignId == null)) return;
-            command.Parameters.AddWithValue("@campaignId", campaignId);
-            int rows = command.ExecuteNonQuery();
+            try
+            {
+                if (command == null && (campaignId == null))
+                {
+                    Log.LogError("command or camapignId are null");
+                    return;
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@campaignId", campaignId);
+                    int rows = command.ExecuteNonQuery();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Log.LogException("An exception occurred:", ex);
+                throw;
+            }
+            
         }
 
         //Function i send to sqlquery
@@ -117,27 +164,44 @@ namespace SemesterBProject.Data.Sql
         //Function that loads one campaign from the  database with campaignID
         public object LoadOneCampiagn(System.Data.SqlClient.SqlCommand command, int? campaignId)
         {
-            if (command == null && (campaignId == null)) return null;
-            command.Parameters.AddWithValue("@campaignId", campaignId);
-            Campaign campaign = new Campaign();
-            using (SqlDataReader reader = command.ExecuteReader())
+            try
             {
-                
-                if (reader.HasRows)
+                if (command == null && (campaignId == null))
                 {
-                    while (reader.Read())
-                    {
-                        campaign.CampaignID = reader.GetInt32(reader.GetOrdinal("CampaignID"));
-                        campaign.CampaignName = reader.GetString(reader.GetOrdinal("CampaignName"));
-                        campaign.NonProfitName = reader.GetString(reader.GetOrdinal("NonProfitName"));
-                        campaign.Hashtag = reader.GetString(reader.GetOrdinal("Hashtag")); 
-                        campaign.Description = reader.GetString(reader.GetOrdinal("Description"));
-
-
-                    }
+                    Log.LogError("command or campaign are null");
+                    return null;
                 }
+                else
+                {
+                    command.Parameters.AddWithValue("@campaignId", campaignId);
+                    Campaign campaign = new Campaign();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                campaign.CampaignID = reader.GetInt32(reader.GetOrdinal            ("CampaignID"));
+                                campaign.CampaignName = reader.GetString               (reader.GetOrdinal("CampaignName"));
+                                campaign.NonProfitName = reader.GetString(reader.GetOrdinal("NonProfitName"));
+                                campaign.Hashtag = reader.GetString(reader.GetOrdinal              ("Hashtag"));
+                                campaign.Description = reader.GetString(reader.GetOrdinal          ("Description"));
+
+
+                            }
+                        }
+                    }
+                    return campaign;
+                }
+               
             }
-            return campaign;
+            catch (Exception ex)
+            {
+                Log.LogException("An exception occurred:", ex);
+                throw;
+            }
+            
 
         }
 

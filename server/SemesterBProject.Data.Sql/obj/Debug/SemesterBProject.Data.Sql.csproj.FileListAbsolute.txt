@@ -11,3 +11,9 @@ C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Data.Sql\obj\Debug\
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Data.Sql\obj\Debug\SemesterBProject.Data.Sql.pdb
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Data.Sql\bin\Debug\NLog.dll
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Data.Sql\bin\Debug\NLog.xml
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Data.Sql\bin\Debug\Utilities.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Data.Sql\bin\Debug\EntityFramework.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Data.Sql\bin\Debug\Utilities.pdb
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Data.Sql\bin\Debug\Utilities.dll.config
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Data.Sql\bin\Debug\SemesterBProject.Dal.dll.config
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Data.Sql\bin\Debug\EntityFramework.xml

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivistSql.cs" />
+    <Compile Include="BaseDataSql.cs" />
     <Compile Include="BusinessComSql.cs" />
     <Compile Include="CampaignSql.cs" />
     <Compile Include="NonProfitSql.cs" />
@@ -56,6 +57,10 @@
     <Compile Include="TwitterSql.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Utilities\Utilities\Utilities.csproj">
+      <Project>{31ffea46-f170-4a98-b56a-d5ef3d105d22}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SemesterBProject.Dal\SemesterBProject.Dal.csproj">
       <Project>{2adee133-25c8-4955-ba9e-475c39e9209e}</Project>
       <Name>SemesterBProject.Dal</Name>

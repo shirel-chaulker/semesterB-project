@@ -17,3 +17,8 @@ C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\Semes
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\SemesterBProject.Model.pdb
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\NLog.dll
 C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\NLog.xml
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\SemesterBProject.Dal.dll.config
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\EntityFramework.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\EntityFramework.xml
+C:\Users\User\source\repos\SemesterBProject\SemesterBProject.Dal\bin\Debug\EntityFramework.SqlServer.xml

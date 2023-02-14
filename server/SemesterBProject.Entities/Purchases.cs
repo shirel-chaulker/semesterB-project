@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Utilities;
 using SemesterBProject.Model;
 
 namespace SemesterBProject.Entities
 {
-   public class Purchases
-   {
+   public class Purchases: BaseEntity
+    {
+        
+        public Purchases (Logger log):base(log)
+        {
+            
+        }
         public void PostPurchase(Purchase UserResponse) //post
         {
-            Data.Sql.purchaseSql purchase = new Data.Sql.purchaseSql();
+            Data.Sql.purchaseSql purchase = new Data.Sql.purchaseSql(Log);
             purchase.AddPurchaseToTbl(UserResponse);
         }
    }

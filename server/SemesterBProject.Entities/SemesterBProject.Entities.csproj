@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="BasePromotionSystem.cs" />
     <Compile Include="BusinessCompanies.cs" />
     <Compile Include="Campaigns.cs" />
     <Compile Include="MainManager.cs" />
@@ -57,6 +59,10 @@
     <Compile Include="Twitters.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Utilities\Utilities\Utilities.csproj">
+      <Project>{31ffea46-f170-4a98-b56a-d5ef3d105d22}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SemesterBProject.Dal\SemesterBProject.Dal.csproj">
       <Project>{2adee133-25c8-4955-ba9e-475c39e9209e}</Project>
       <Name>SemesterBProject.Dal</Name>
@@ -68,6 +74,10 @@
     <ProjectReference Include="..\SemesterBProject.Model\SemesterBProject.Model.csproj">
       <Project>{ef423f21-f942-4368-87c4-c3eb17342fa6}</Project>
       <Name>SemesterBProject.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialCommunication\SocialCommunication.csproj">
+      <Project>{a8c770b5-877c-4a14-a4c7-7a4a21a4e319}</Project>
+      <Name>SocialCommunication</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

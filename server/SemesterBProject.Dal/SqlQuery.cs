@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SemesterBProject.Model;
-using static SemesterBProject.Dal.SqlQuery;
+
 
 namespace SemesterBProject.Dal
 {
     public class SqlQuery
     {
-        string connectionString = @"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SemesterBProject;Data Source=localhost\SQLEXPRESS";
+        // string connectionString = @"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=SemesterBProject;Data Source=localhost\SQLEXPRESS";
+
+        string connectionString = Environment.GetEnvironmentVariable("connectionString");
         SqlConnection connection;
         public SqlQuery()
         {
@@ -28,7 +26,7 @@ namespace SemesterBProject.Dal
             }
             catch (SqlException ex)
             {
-
+               
                 return false;
             }
         }
@@ -115,10 +113,10 @@ namespace SemesterBProject.Dal
             {
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    if (reader.HasRows)
-                    {
+                    //if (reader.HasRows)
+                    //{
                         func(reader);
-                    }
+                    //}
                 }
             }
         }

@@ -13,5 +13,6 @@ namespace SemesterBProject.Model
         public int ActivistId { get; set; }
         public decimal EarnMoney { get; set; }
         public bool Active { get; set; }
+        public DateTime Date { get; set; }
     }
 }

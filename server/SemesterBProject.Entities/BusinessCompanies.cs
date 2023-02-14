@@ -1,27 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Utilities;
 using SemesterBProject.Data.Sql;
 using SemesterBProject.Model;
 using SemesterBProject.Model.Reports;
 
 namespace SemesterBProject.Entities
 {
-    public class BusinessCompanies
+    public class BusinessCompanies: BaseEntity
     {
+         
+        public BusinessCompanies (Logger log) : base (log)
+        {
+            
+        }
+
         public Dictionary<int, BusinessCompany> Init()
         {
-            Data.Sql.BusinessComSql businessCom = new BusinessComSql();
-            return businessCom.GetCompaniesFromDB();
-            
+                Log.LogEvent("Activates the function GetCompaniesFromDB");
+
+                Data.Sql.BusinessComSql businessCom = new BusinessComSql(Log);
+                return businessCom.GetCompaniesFromDB();
         }
 
         public List<DeliveryTrack> GetDeliveries()
         {
-            Data.Sql.BusinessComSql businessCom = new BusinessComSql();
-            return businessCom.GetDeliveryFromDB();
+                Log.LogEvent("Activates the function GetDeliveryFromDB");
+
+                Data.Sql.BusinessComSql businessCom = new BusinessComSql(Log);
+                return businessCom.GetDeliveryFromDB();
 
         }
 
